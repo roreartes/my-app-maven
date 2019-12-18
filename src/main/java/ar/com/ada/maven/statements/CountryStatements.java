@@ -1,12 +1,12 @@
 package ar.com.ada.maven.statements;
 
-import ar.com.ada.maven.database.ConnectionDB;
+import ar.com.ada.maven.model.ConnectionDB;
 
 import java.sql.*;
 
 public class CountryStatements {
 
-    public static void listCountries() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+   /* public static void listCountries() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         String sql = "Select * from Pais";
         Connection conn = ConnectionDB.getConnection();
         Statement st = conn.createStatement();
@@ -35,5 +35,5 @@ public class CountryStatements {
 
         System.out.println(insert);
         conn.close();
-    }
+    }*/
 }
