@@ -1,4 +1,4 @@
-package ar.com.ada.maven.database;
+package ar.com.ada.maven.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
