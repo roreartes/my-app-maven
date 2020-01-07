@@ -6,7 +6,7 @@ public class FamiliaDTO {
     private int id;
     private String nombre;
 
-    public FamiliaDTO() {
+    public FamiliaDTO(int id, String nombre) {
     }
 
     public int getId() {

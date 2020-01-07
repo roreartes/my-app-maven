@@ -7,8 +7,16 @@ public class ZooDTO {
     private String nombre;
     private int tamañom2;
     private int presupuesto;
+    private CiudadDTO ciudadId;
 
     public ZooDTO() {
+    }
+
+    public ZooDTO(String nombre, int tamañom2, int presupuesto, CiudadDTO ciudadId) {
+        this.nombre = nombre;
+        this.tamañom2 = tamañom2;
+        this.presupuesto = presupuesto;
+        this.ciudadId = ciudadId;
     }
 
     public int getId() {

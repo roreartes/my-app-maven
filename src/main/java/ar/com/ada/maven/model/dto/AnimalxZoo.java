@@ -10,6 +10,9 @@ public class AnimalxZoo {
     public AnimalxZoo() {
     }
 
+    public AnimalxZoo(int id, AnimalxZoo zooId, AnimalxZoo animalID) {
+    }
+
     public int getId() {
         return id;
     }

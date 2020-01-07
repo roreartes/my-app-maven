@@ -12,6 +12,9 @@ public class EspecieDTO {
     public EspecieDTO() {
     }
 
+    public EspecieDTO(int id, String nombreVulgar, String nombreCientifico, boolean extinto, EspecieDTO familia_id) {
+    }
+
     public int getId() {
         return id;
     }
@@ -77,5 +80,8 @@ public class EspecieDTO {
     @Override
     public int hashCode() {
         return Objects.hash(id, nombreVulgar, nombreCientifico, extinto, familiaId);
+    }
+
+    public String getNombre() {
     }
 }
