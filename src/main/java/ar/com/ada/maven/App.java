@@ -1,5 +1,6 @@
 package ar.com.ada.maven;
 
+import ar.com.ada.maven.Controller.MainController;
 import ar.com.ada.maven.model.dao.ContinenteDAO;
 import ar.com.ada.maven.model.dao.PaisDAO;
 import ar.com.ada.maven.model.dto.ContinenteDTO;
@@ -41,7 +42,7 @@ public class App {
             System.out.println("NO se pudo realizar la actualizacion");*/
 
 // findbyid
-        PaisDAO dao = new PaisDAO();
+        /*PaisDAO dao = new PaisDAO();
         PaisDTO paisDTO = dao.findById(2);
         if (paisDTO != null)
             System.out.println("continente.toString() = " + paisDTO.toString());
@@ -62,6 +63,8 @@ public class App {
            System.out.println("No se pudo realizar");
 
 
+*/
+        MainController.run();
 
     }
         

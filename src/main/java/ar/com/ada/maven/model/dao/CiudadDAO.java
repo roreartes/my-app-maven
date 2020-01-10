@@ -12,8 +12,7 @@ public class CiudadDAO implements Dao<CiudadDTO> {
 
     private Boolean willCloseConnection = true;
 
-    public CiudadDAO() {
-    }
+    public CiudadDAO() { }
 
     public CiudadDAO(Boolean willCloseConnection) {
         this.willCloseConnection = willCloseConnection;
@@ -31,6 +30,7 @@ public class CiudadDAO implements Dao<CiudadDTO> {
             Connection connection = ConnectionDB.getConnection();
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(sql);
+
             while (rs.next()) {
 
                 PaisDTO pais = paisDAO.findById(rs.getInt(("Pais_id")));

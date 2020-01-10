@@ -11,9 +11,9 @@ public class ContinenteController {
     private static ContinenteView view = new ContinenteView();
     private static ContinenteDAO continenteDAO = new ContinenteDAO();
 
-    private static void continentList (){
-     List<ContinenteDTO> continentes = continenteDAO.findAll();
-     view.printAllContinents(continentes);
+    private static void continentList() {
+        List<ContinenteDTO> continentes = continenteDAO.findAll();
+        view.printAllContinents(continentes);
 
         try {
             System.out.println("Presione enter para regresar menu");
@@ -22,28 +22,28 @@ public class ContinenteController {
             e.printStackTrace();
         }
 
-        }
+    }
 
-        public static void init(){
+    public static void init() {
         boolean reinicia = false;
 
-        while (!reinicia){
-          int option = view.continentMenuSelectOption();
+        while (!reinicia) {
+            int option = view.continentMenuSelectOption();
             switch (option) {
                 case 1:
                     ContinenteController.continentList();
                     break;
                 case 2:
-                   reinicia = true;
+                    reinicia = true;
                 default:
                     System.out.println(" Usted debe seleccionar una opción valida");
 
 
-        }
-
-
+            }
 
         }
+    }
 }
+
 
 

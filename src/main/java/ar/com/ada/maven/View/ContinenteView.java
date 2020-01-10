@@ -31,7 +31,7 @@ public class ContinenteView {
 
     public void printAllContinents(List<ContinenteDTO> continents) {
         System.out.println("Listado de Continentes");
-        continents.forEach(c -> System.out.println(" id: " + c.getId() + "Nombre" + c.getNombre()));
+        continents.forEach(c -> System.out.println(" id: " + c.getId() + " nombre" + c.getNombre()));
 
     }
 

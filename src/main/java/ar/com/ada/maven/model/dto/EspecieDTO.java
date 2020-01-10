@@ -83,5 +83,6 @@ public class EspecieDTO {
     }
 
     public String getNombre() {
+        return nombreCientifico;
     }
 }

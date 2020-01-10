@@ -8,6 +8,7 @@ import ar.com.ada.maven.model.dto.ZooDTO;
 import java.sql.*;
 import java.util.ArrayList;
 
+
 public class AnimalxZooDAO implements Dao <AnimalxZoo> {
 
     private AnimalxZooDAO animalxZooDAO = new AnimalxZooDAO(false);
@@ -16,7 +17,6 @@ public class AnimalxZooDAO implements Dao <AnimalxZoo> {
     public AnimalxZooDAO(boolean b) {
     }
 
-    ;
 
     public AnimalxZooDAO(Boolean willCloseConnection) {
         this.willCloseConnection = willCloseConnection;
@@ -68,8 +68,7 @@ public class AnimalxZooDAO implements Dao <AnimalxZoo> {
         return animalxZoo;
     }
 
-
-   /* @Override
+    @Override
     public Boolean save(AnimalDTO animalDTO) {
         String sql = "INSERT INTO AnimalxZoo (zoo) VALUES (?)";
         int hasSave = 0;
@@ -88,9 +87,9 @@ public class AnimalxZooDAO implements Dao <AnimalxZoo> {
         return hasSave == 1;
 
 
-    }*/
+    }
 
-    /*@Override
+    @Override
     public Boolean update(AnimalDTO animalDTO, ZooDTO zooDTO, Integer id) {
         String sql = "UPDATE AnimalxZoo set Animal_id = ? where id = ?";
         int hasUpdate = 0;
@@ -106,8 +105,7 @@ public class AnimalxZooDAO implements Dao <AnimalxZoo> {
             System.out.println("CONNECTION ERROR: " + e.getMessage());
         }
         return hasUpdate == 1;
-    }*/
-
+    }
     @Override
     public Boolean delete(Integer id) {
         String sql = "DELETE FROM Animal where id = ?";
@@ -127,3 +125,17 @@ public class AnimalxZooDAO implements Dao <AnimalxZoo> {
     }
 
 }
+
+
+
+
+
+/* *//*
+
+
+    */
+/**//*
+
+
+
+*/
