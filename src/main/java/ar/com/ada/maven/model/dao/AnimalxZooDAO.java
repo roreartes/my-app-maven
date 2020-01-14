@@ -9,7 +9,8 @@ import java.sql.*;
 import java.util.ArrayList;
 
 
-public class AnimalxZooDAO implements Dao <AnimalxZoo> {
+/*
+public class AnimalxZooDAO implements Dao<AnimalxZoo> {
 
     private AnimalxZooDAO animalxZooDAO = new AnimalxZooDAO(false);
     private Boolean willCloseConnection = true;
@@ -69,14 +70,14 @@ public class AnimalxZooDAO implements Dao <AnimalxZoo> {
     }
 
     @Override
-    public Boolean save(AnimalDTO animalDTO) {
+    public Boolean save(AnimalxZoo animalxZoo) {
         String sql = "INSERT INTO AnimalxZoo (zoo) VALUES (?)";
         int hasSave = 0;
 
         try {
             Connection connection = ConnectionDB.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, animalDTO.getId());
+            preparedStatement.setInt(1, animalxZoo.getId());
 
             hasSave = preparedStatement.executeUpdate();
             connection.close();
@@ -90,14 +91,14 @@ public class AnimalxZooDAO implements Dao <AnimalxZoo> {
     }
 
     @Override
-    public Boolean update(AnimalDTO animalDTO, ZooDTO zooDTO, Integer id) {
+    public Boolean update(AnimalxZoo animalxZoo, ZooDTO zooDTO, Integer id) {
         String sql = "UPDATE AnimalxZoo set Animal_id = ? where id = ?";
         int hasUpdate = 0;
 
         try {
             Connection connection = ConnectionDB.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, animalDTO.getId());
+            preparedStatement.setInt(1, animalxZoo.getId());
             preparedStatement.setInt(2, id);
             hasUpdate = preparedStatement.executeUpdate();
 
@@ -125,17 +126,5 @@ public class AnimalxZooDAO implements Dao <AnimalxZoo> {
     }
 
 }
-
-
-
-
-
-/* *//*
-
-
-    */
-/**//*
-
-
 
 */

@@ -11,6 +11,7 @@ public class ContinenteDAO implements Dao<ContinenteDTO> {
 
 
     private Boolean willCloseConnection = true;
+
     public ContinenteDAO() {
     }
 
@@ -61,17 +62,38 @@ public class ContinenteDAO implements Dao<ContinenteDTO> {
         return continente;
     }
 
+
+    public ContinenteDTO findByName(String nombre) {
+        String sql = "Select * from Continente where nombre = ?";
+        ContinenteDTO continente = null;
+        try {
+            Connection connection = ConnectionDB.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, nombre);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next())
+                continente = new ContinenteDTO(rs.getInt("id"), rs.getString("nombre")); // mapping
+
+            if (willCloseConnection)
+                connection.close();
+
+        } catch (Exception e) {
+            System.out.println("CONNECTION ERROR: " + e.getMessage());
+        }
+        return continente;
+    }
+
     @Override
     public Boolean save(ContinenteDTO continenteDTO) {
         String sql = "INSERT INTO Continente (nombre) VALUES (?)";
-        int hasSave =0;
+        int hasSave = 0;
         try {
             Connection connection = ConnectionDB.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, continenteDTO.getNombre());
 
-           hasSave = preparedStatement.executeUpdate();
-           connection.close();
+            hasSave = preparedStatement.executeUpdate();
+            connection.close();
 
         } catch (SQLException | ClassNotFoundException | IllegalAccessException | InstantiationException e) {
             System.out.println("CONNECTION ERROR: " + e.getMessage());
@@ -120,6 +142,46 @@ public class ContinenteDAO implements Dao<ContinenteDTO> {
         return hasDelete == 1;
 
     }
+
+    public List<ContinenteDTO> findAll(int limit, int offset) {
+        String sql = "Select * from Continente LIMIT ? OFFSET ?";
+        List<ContinenteDTO> continenteDTOS = new ArrayList<>();
+
+        try {
+            Connection connection = ConnectionDB.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, limit);
+            preparedStatement.setInt(2, offset);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                ContinenteDTO continente = new ContinenteDTO(rs.getInt("id"), rs.getString("nombre"));
+                continenteDTOS.add(continente);
+            }
+            connection.close();
+        } catch (SQLException | ClassNotFoundException | IllegalAccessException | InstantiationException e) {
+            System.out.println("CONNECTION ERROR: " + e.getMessage());
+        }
+        return continenteDTOS;
+    }
+
+    public int getTotalContinents() {
+        String sql = "Select count(*) as Total from Continente";
+        int total = 0;
+
+        try {
+            Connection connection = ConnectionDB.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+            if (rs.next()) total = rs.getInt("total");
+            connection.close();
+
+        } catch (SQLException | ClassNotFoundException | IllegalAccessException | InstantiationException e) {
+            System.out.println("CONNECTION ERROR: " + e.getMessage());
+
+        }
+        return total;
+    }
+
 }
 
 

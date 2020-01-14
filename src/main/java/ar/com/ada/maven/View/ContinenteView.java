@@ -35,4 +35,43 @@ public class ContinenteView {
 
     }
 
+    public String getNameNewContinent() {
+        System.out.println("Usted creará un nuevo continente ");
+        System.out.println(" Ingrese el nombre del nuevo continente. Si desea cancelar, no ingrese datos");
+
+        Scanner keyboard2 = ScannerSingleton.getInstance();
+        keyboard2.nextLine();
+
+        while (true) {
+            try {
+                String name = keyboard2.nextLine().trim();
+                while (!name.matches("^[A-Za-záéíóúüÁÉÍÓÚÜ\\s]+$") && !name.isEmpty()) {
+                    System.out.println(" Usted debe ingresar una opción válida ");
+                    name = keyboard2.nextLine();
+                }
+                return name;
+            } catch (InputMismatchException e) {
+                System.out.println("Usted debe ingresar una opción válida");
+                keyboard2.nextLine();
+
+            }
+
+        }
+
+    }
+
+    public void showNewContinent(String nuevoContinente ){
+        System.out.println( "El continente agregado es " + nuevoContinente);
+
+    }
+
+    public void newContinentCanceled(){
+        System.out.println(" Se ha cancelado el proceso de guardado de continente" );
+    }
+
+    public void continentAlreadyExists(ContinenteDTO nuevoContinente){
+        System.out.println(" Ese continente ya existe " );
+    }
+
+
 }

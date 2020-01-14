@@ -13,7 +13,7 @@ public class MainView {
 
 
             System.out.println("Zoos del mundo");
-            System.out.println("Seleccione la opción deseada: Continente (1), sino Salir (2)");
+            System.out.println("Seleccione la opción deseada: Continente (1), sino Salir (5)");
 
 
             Scanner keyboard = ScannerSingleton.getInstance();
